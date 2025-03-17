@@ -17,7 +17,13 @@ cd your/project/folder
 git clone "page adress"
 ```
 
-3. Install playwright
+3. Go to repository folder
+
+```
+cd QA-CAMP-2025
+```
+
+4. Install playwright
 
 ```
 npm install
