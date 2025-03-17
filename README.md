@@ -1,5 +1,8 @@
 # QA-Camp-2025
 
+Project to learn automation in playwright.<br/>
+[AutomationTestStore](https://automationteststore.com)
+
 ## Prepare enviroment
 
 1. Go to your project folder
