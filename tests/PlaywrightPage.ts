@@ -11,7 +11,7 @@ export class PlaywrightPage {
         await expect(this.page).toHaveTitle(/Playwright/);
     }
 
-    async linkClick() {
+    async clickLink() {
         await this.page.getByRole('link', { name: 'Get started' }).click();
     }
 

@@ -7,6 +7,6 @@ test('has title', async ({ playwrightPage }) => {
 
 test('get started link', async ({ playwrightPage }) => {
   await playwrightPage.goto();
-  await playwrightPage.linkClick();
+  await playwrightPage.clickLink();
   await playwrightPage.toHaveHeading();
 });
