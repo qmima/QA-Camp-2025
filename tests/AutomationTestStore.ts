@@ -18,9 +18,5 @@ export class AutomationTestStore{
     async toHaveUrl(){
         await expect(this.page).toHaveURL('https://automationteststore.com/index.php?rt=account/login');
     }
-/*
-    async toBeVisible(){
-        await expect(this.loginRegister()).toBeVisible();
-    }
-*/
+
 }
