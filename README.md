@@ -1,6 +1,6 @@
 # QA-Camp-2025
 
-Project to learn automation in playwright.<br/>
+Project to learn automation in playwright. URL:<br/>
 [AutomationTestStore](https://automationteststore.com)
 
 ## Prepare enviroment
