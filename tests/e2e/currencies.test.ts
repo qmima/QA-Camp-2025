@@ -1,5 +1,5 @@
 import test from '@playwright/test';
-import { MainPageSteps } from '../main-page.steps';
+import { MainPageSteps } from '../../page-object-model/steps/main-page.steps';
 import { config } from '../../config/globalConfig';
 
 test('currency change and verification', async ({ page }) => {

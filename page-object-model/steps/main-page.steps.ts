@@ -1,5 +1,5 @@
 import { Page, expect } from '@playwright/test';
-import { currency } from './Currency';
+import { currency } from '../shared-components/Currency';
 
 export class MainPageSteps {
   page: Page;

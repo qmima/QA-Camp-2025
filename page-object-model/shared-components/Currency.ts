@@ -2,7 +2,7 @@ class Currency {
   private static instance: Currency;
   private actualCurrency: string;
 
-  protected constructor() {
+  private constructor() {
     this.actualCurrency = '$';
   }
 
