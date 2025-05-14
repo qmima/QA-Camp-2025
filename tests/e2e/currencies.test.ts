@@ -1,5 +1,6 @@
-import { test, expect } from '@playwright/test';
-import { currency } from '../Currency';
+import test from '@playwright/test';
+import { MainPageSteps } from '../main-page.steps';
+import { config } from '../../config/globalConfig';
 
 test('currency change and verification', async ({ page }) => {
   const curriences = [
@@ -8,31 +9,12 @@ test('currency change and verification', async ({ page }) => {
     { name: 'Pound Sterling', symbol: '£' },
   ];
 
-  await page.goto('https://automationteststore.com/');
+  const mainPageSteps = new MainPageSteps(page);
 
-  // let menu = await page.locator('ul.language');
-  // await menu.hover();
-
-  // let option = await page.locator('ul.currency li').nth(0);
-  // await option.click();
-
-  // let symbol = await page.textContent('a.dropdown-toggle span.label');
-  // await expect(symbol).toBe('€');
+  await page.goto(config.baseURL);
 
   for (let i = 0; i < curriences.length; ++i) {
-    let item = curriences[i];
-
-    let currencyMenu = page.locator('ul.language');
-    await currencyMenu.hover();
-
-    let option = page
-      .getByRole('listitem')
-      .filter({ hasText: item.symbol + ' ' + item.name })
-      .nth(1);
-    await option.click();
-    currency.changeCurrency(item.symbol);
-
-    let symbol = await page.textContent('a.dropdown-toggle span.label');
-    expect(symbol).toBe(currency.getCurrency());
+    await mainPageSteps.chooseCurrency(curriences[i]);
+    await mainPageSteps.verifyCurrency();
   }
 });
