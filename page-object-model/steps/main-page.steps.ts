@@ -14,7 +14,7 @@ export class MainPageSteps {
 
     let option = this.page
       .getByRole('listitem')
-      .filter({ hasText: newCurrency.symbol + ' ' + newCurrency.name })
+      .filter({ hasText: `${newCurrency.symbol} ${newCurrency.name}` })
       .nth(1);
     await option.click();
     
