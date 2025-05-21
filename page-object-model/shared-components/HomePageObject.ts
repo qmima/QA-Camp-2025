@@ -16,6 +16,7 @@ export class HomePageObject {
   async toHaveTitle() {
     await expect(this.page).toHaveTitle('A place to practice your automation skills!');
   }
+  
 
   async open() {
     await this.page.goto(this.url);
