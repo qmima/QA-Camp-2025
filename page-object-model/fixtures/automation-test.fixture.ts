@@ -1,5 +1,5 @@
 import { test as base } from '@playwright/test';
-import { HomePageObject } from '../shared-components/HomePageObject';
+import { HomePageObject } from '../shared-components/home-page.object';
 import { config } from '../../config/globalConfig';
 
 type Fixtures = {

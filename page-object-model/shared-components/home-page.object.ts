@@ -1,4 +1,5 @@
 import { expect, Page } from '@playwright/test';
+import { LogInPageObject } from './log-in-page.object';
 
 export class HomePageObject {
   page: Page;
@@ -21,5 +22,10 @@ export class HomePageObject {
     await this.page.goto(this.url);
     await this.checkIfOpen();
     await this.toHaveTitle();
+  }
+
+  async goToLogInPage() {
+    await this.page.locator("//ul[@id='customer_menu_top']").click();
+    return new LogInPageObject(this.page);
   }
 }
