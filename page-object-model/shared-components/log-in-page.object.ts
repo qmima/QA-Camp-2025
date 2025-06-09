@@ -1,12 +1,7 @@
-import { Page } from '@playwright/test';
+import { BasePageObject } from './base-page.object';
 
-export class LogInPageObject {
-  page: Page;
-  constructor(page: Page) {
-    this.page = page;
-  }
-
-  async goToLogInPage() {
-    await this.page.locator("//ul[@id='customer_menu_top']").click();
+export class LogInPageObject extends BasePageObject {
+  async clickRegisterButton() {
+    await this.page.locator("//button[@type='submit' and @title='Continue']").click();
   }
 }
