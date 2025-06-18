@@ -1,5 +1,5 @@
 import { Page, expect } from '@playwright/test';
-import { currency } from '../shared-components/Currency';
+import { currency } from '../page-objects/currency-page.object';
 
 export class MainPageSteps {
   page: Page;
@@ -17,7 +17,7 @@ export class MainPageSteps {
       .filter({ hasText: `${newCurrency.symbol} ${newCurrency.name}` })
       .nth(1);
     await option.click();
-    
+
     currency.changeCurrency(newCurrency.symbol);
   }
 

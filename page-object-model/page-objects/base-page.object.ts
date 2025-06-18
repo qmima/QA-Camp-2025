@@ -26,6 +26,6 @@ export class BasePageObject {
   }
 
   async fillInputID(inputID, inputText) {
-    await this.page.locator(`//input[@id='${inputID}']`).fill(inputText);
+    await this.page.fill(`input#${inputID}`, inputText);
   }
 }
