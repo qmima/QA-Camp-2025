@@ -10,7 +10,7 @@ export class HomePageObject extends BasePageObject {
   }
 
   async goToLogInPage() {
-    await this.page.locator("//ul[@id='customer_menu_top']").click();
+    await this.page.locator('ul#customer_menu_top').click();
     return new LogInPageObject(this.page, this.url);
   }
 }
