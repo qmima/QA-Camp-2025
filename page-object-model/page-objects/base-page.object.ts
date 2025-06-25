@@ -28,4 +28,8 @@ export class BasePageObject {
   async fillInputID(inputID, inputText) {
     await this.page.fill(`input#${inputID}`, inputText);
   }
+
+  async selectInputID(selectorID, optionID) {
+    await this.page.locator(`select#${selectorID}`).selectOption(optionID);
+  }
 }
