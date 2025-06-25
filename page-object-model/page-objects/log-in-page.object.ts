@@ -1,5 +1,3 @@
-import { faker } from '@faker-js/faker';
-import { UserBuilder } from '../constants/user';
 import { BasePageObject } from './base-page.object';
 
 export class LogInPageObject extends BasePageObject {
@@ -18,11 +16,51 @@ export class LogInPageObject extends BasePageObject {
     await this.fillInputID('AccountFrm_email', name);
   }
 
-  async fillAdress(name) {
+  async fillTelephone(name) {
+    await this.fillInputID('AccountFrm_telephone', name);
+  }
+
+  async fillFax(name) {
+    await this.fillInputID('AccountFrm_fax', name);
+  }
+
+  async fillCompany(name) {
+    await this.fillInputID('AccountFrm_company', name);
+  }
+
+  async fillAdress1(name) {
     await this.fillInputID('AccountFrm_address_1', name);
+  }
+
+  async fillAdress2(name) {
+    await this.fillInputID('AccountFrm_address_2', name);
   }
 
   async fillCity(name) {
     await this.fillInputID('AccountFrm_city', name);
+  }
+
+  async selectRegion(selectedOption) {
+    await this.selectInputID('AccountFrm_zone_id', selectedOption);
+  }
+
+  async fillZipCode(name) {
+    await this.fillInputID('AccountFrm_postcode', name);
+  }
+
+  async selectCountry(selectedOption) {
+    await this.selectInputID('AccountFrm_country_id', selectedOption); //add confirmation
+  }
+
+  async fillUserName(name) {
+    await this.fillInputID('AccountFrm_loginname', name);
+  }
+
+  async fillPassword(name) {
+    await this.fillInputID('AccountFrm_password', name);
+  }
+
+  async fillPasswordConfirm(name) {
+    await this.fillInputID('AccountFrm_confirm', name);
   }
 }
