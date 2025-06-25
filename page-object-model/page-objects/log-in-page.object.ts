@@ -1,3 +1,5 @@
+import { faker } from '@faker-js/faker';
+import { UserBuilder } from '../constants/user';
 import { BasePageObject } from './base-page.object';
 
 export class LogInPageObject extends BasePageObject {
