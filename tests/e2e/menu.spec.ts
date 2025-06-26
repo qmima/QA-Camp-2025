@@ -9,10 +9,7 @@ import { listMenu } from '../../page-object-model/shared-components/menu-element
 test('Check menu', async ({ menu, page }) => {
   
   await page.goto(config.baseURL);
-
   await new Menu(page).getMenuDetails(listMenu);
-  
-
 });
 
 
@@ -21,6 +18,5 @@ test('Check menu recursively', async ({ menu, page }) => {
   await page.goto(config.baseURL);
   const xpath = `//*[@id="categorymenu"]/nav/ul/li`;
   await new MenuRecursion(page).getMenuDetailsRec(listMenu, xpath);
-  
 
 });
