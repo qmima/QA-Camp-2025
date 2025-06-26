@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "prettier:fix": "npx prettier --write ."
+    "eslint": "npx eslint .",
+    "eslint:fix": "npx eslint --fix .",
+    "prettier:fix": "npx prettier --write .",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -18,8 +21,13 @@
   },
   "homepage": "https://github.com/mima-design/QA-Camp-2025#readme",
   "devDependencies": {
+    "@eslint/js": "^9.29.0",
     "@playwright/test": "^1.51.0",
     "@types/node": "^22.13.10",
-    "prettier": "3.5.3"
+    "eslint": "^9.29.0",
+    "eslint-config-prettier": "^10.1.5",
+    "husky": "^8.0.0",
+    "prettier": "^3.5.3",
+    "typescript-eslint": "^8.34.1"
   }
 }
