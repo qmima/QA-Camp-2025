@@ -1,19 +1,16 @@
-import { test, expect } from '@playwright/test';
-import { HomePageProducts } from '../../page-object-model/shared-components/HomePageProducts';
-import { config } from '../../config/globalConfig';
+import { ProductsSections } from '../../page-object-model/constants/products-sections';
+import { test } from '../../page-object-model/fixtures/HomePageFixture';
+import { HomePageProductsSection } from '../../page-object-model/shared-components/home-page-products-section';
+import { expect } from '@playwright/test';
 
-test('adding item to basket', async ({ page }) => {
+test('adding item to basket', async ({ page, homePage }) => {
   
- // const url = 'https://automationteststore.com/';
-  
-  const productName = 'Tropiques Minerale Loose Bronzer';
+  await homePage.open();
 
-  await page.goto(config.baseURL);
-
-  const homePageProducts = new HomePageProducts(page); 
-  const productDetails = await homePageProducts.getProductDetails(productName);
+   const homePageProductsSection = new HomePageProductsSection(page);
+   const featuredSectionProduct = await homePageProductsSection.getProductFromSection(ProductsSections.featured);
+   const productsDetails = await featuredSectionProduct.getProductDetails('Tropiques Minerale Loose Bronzer');
    
-   expect(productDetails.title).toEqual(productName);
-   expect(productDetails.imageHref).toEqual('//automationteststore.com/image/thumbnails/18/6f/demo_product03_jpg-100094-250x250.jpg');
-   expect(productDetails.price).toEqual('$38.50');
+   expect(productsDetails.imageHref).toEqual('//automationteststore.com/image/thumbnails/18/6f/demo_product03_jpg-100094-250x250.jpg');
+   expect(productsDetails.price).toEqual('$38.50');
 });
