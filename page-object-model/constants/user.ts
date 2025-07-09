@@ -1,4 +1,4 @@
-import { fa, faker, th } from '@faker-js/faker';
+import { faker } from '@faker-js/faker';
 
 interface User {
   firstName: string;

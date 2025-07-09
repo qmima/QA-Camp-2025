@@ -1,6 +1,11 @@
 import { BasePageObject } from './base-page.object';
 
 export class LogInPageObject extends BasePageObject {
+  async selectInputID(selectorID, optionID) {
+    const selectLocator = this.page.locator(`select#${selectorID}`);
+    await selectLocator.selectOption(optionID);
+  }
+
   async clickRegisterButton() {
     await this.page.locator("//button[@type='submit' and @title='Continue']").click();
   }
@@ -49,7 +54,7 @@ export class LogInPageObject extends BasePageObject {
   }
 
   async selectCountry(selectedOption) {
-    await this.selectInputID('AccountFrm_country_id', selectedOption); //add confirmation
+    await this.selectInputID('AccountFrm_country_id', selectedOption);
   }
 
   async fillUserName(name) {
@@ -62,5 +67,11 @@ export class LogInPageObject extends BasePageObject {
 
   async fillPasswordConfirm(name) {
     await this.fillInputID('AccountFrm_confirm', name);
+  }
+
+  async conirmationMessage() {
+    await this.page
+      .locator('//span[contains(text(), "Your Account Has Been Created!")]')
+      .waitFor({ state: 'visible' });
   }
 }
