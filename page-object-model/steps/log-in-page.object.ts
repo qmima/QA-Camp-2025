@@ -1,4 +1,4 @@
-import { BasePageObject } from './base-page.object';
+import { BasePageObject } from '../page-objects/base-page.object';
 
 export class LogInPageObject extends BasePageObject {
   async selectInputID(selectorID, optionID) {
@@ -69,9 +69,19 @@ export class LogInPageObject extends BasePageObject {
     await this.fillInputID('AccountFrm_confirm', name);
   }
 
-  async conirmationMessage() {
-    await this.page
-      .locator('//span[contains(text(), "Your Account Has Been Created!")]')
-      .waitFor({ state: 'visible' });
+  async checkSubscribeYesButton() {
+    await this.page.locator('input#AccountFrm_newsletter1').click();
+  }
+
+  async checkSubscribeNoButton() {
+    await this.page.locator('input#AccountFrm_newsletter0').click();
+  }
+
+  async checkPolicyCheckbox() {
+    await this.page.locator('input#AccountFrm_agree').click();
+  }
+
+  async confirmationMessage() {
+    return await this.page.textContent('.maintext');
   }
 }
