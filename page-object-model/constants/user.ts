@@ -88,15 +88,34 @@ export class UserBuilder implements User {
     this.password = password;
     return this;
   }
+
+  build() {
+    return {
+      firstName: this.firstName,
+      lastName: this.lastName,
+      email: this.email,
+      telephone: this.telephone,
+      fax: this.fax,
+      company: this.company,
+      adress1: this.adress1,
+      adress2: this.adress2,
+      city: this.city,
+      zipCode: this.zipCode,
+      username: this.username,
+      password: this.password,
+    };
+  }
 }
 
 export class UserDirector {
   private builder: UserBuilder;
+
   constructor(builder: UserBuilder) {
     this.builder = builder;
   }
+
   constructUser(): User {
-    this.builder
+    return this.builder
       .setFirstName(faker.person.firstName())
       .setLastName(faker.person.lastName())
       .setEmail(faker.internet.email())
@@ -108,21 +127,7 @@ export class UserDirector {
       .setCity(faker.location.city())
       .setZipCode(faker.location.zipCode())
       .setLoginName(faker.internet.username())
-      .setPassword(faker.internet.password());
-
-    return {
-      firstName: this.builder.firstName,
-      lastName: this.builder.lastName,
-      email: this.builder.email,
-      telephone: this.builder.telephone,
-      fax: this.builder.fax,
-      company: this.builder.company,
-      adress1: this.builder.adress1,
-      adress2: this.builder.adress2,
-      city: this.builder.city,
-      zipCode: this.builder.zipCode,
-      username: this.builder.username,
-      password: this.builder.password,
-    };
+      .setPassword(faker.internet.password())
+      .build();
   }
 }

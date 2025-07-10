@@ -1,6 +1,6 @@
 import { test } from '../../page-object-model/fixtures/automation-test.fixture';
 import { UserBuilder, UserDirector } from '../../page-object-model/constants/user';
-import { log } from 'console';
+import { expect } from '@playwright/test';
 
 const builder = new UserBuilder();
 const director = new UserDirector(builder);
@@ -16,7 +16,7 @@ test('1. Positive user registration', async ({ homePage }) => {
   await logInPage.toHaveTitle('Create Account');
 
   //fill User data
-  await logInPage.interactwith('input', 'AccountFrm_firstname', user.firstName);
+  await logInPage.fillFirstName(user.firstName);
   await logInPage.fillLastName(user.lastName);
   await logInPage.fillEmail(user.email);
   await logInPage.fillTelephone(user.telephone);
@@ -32,9 +32,16 @@ test('1. Positive user registration', async ({ homePage }) => {
   await logInPage.fillPassword(user.password);
   await logInPage.fillPasswordConfirm(user.password);
 
-  await logInPage.interactwith('checkbox', 'AccountFrm_agree');
-  await logInPage.interactwith('checkbox', 'AccountFrm_newsletter0');
+  //check checkboxes
+  await logInPage.checkPolicyCheckbox();
+  await logInPage.checkSubscribeNoButton();
 
+  //verify all inputs
+
+  //Sumbit new rejestration
   await logInPage.clickRegisterButton();
-  await logInPage.conirmationMessage();
+
+  //User is succesfully created
+  const confirmationMessage = await logInPage.confirmationMessage();
+  expect(confirmationMessage).toContain('Your Account Has Been Created!');
 });

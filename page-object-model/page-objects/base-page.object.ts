@@ -28,14 +28,4 @@ export class BasePageObject {
   async fillInputID(inputID, inputText) {
     await this.page.fill(`input#${inputID}`, inputText);
   }
-
-  async interactwith(DOMelement, selectorID, optionalText?) {
-    if (DOMelement == 'input') {
-      await this.page.fill(`input#${selectorID}`, optionalText);
-    } else if (DOMelement == 'selector') {
-      await this.page.locator(`select#${selectorID}`).selectOption(optionalText);
-    } else if (DOMelement == 'checkbox') {
-      await this.page.locator(`input#${selectorID}`).check();
-    }
-  }
 }
