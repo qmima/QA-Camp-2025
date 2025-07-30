@@ -8,8 +8,8 @@ test('adding item to basket', async ({ page, homePage }) => {
   await homePage.open();
 
    const homePageProductsSection = new HomePageProductsSection(page);
-   const featuredSectionProduct = await homePageProductsSection.getProductFromSection(ProductsSections.featured);
-   const productsDetails = await featuredSectionProduct.getProductDetails('Tropiques Minerale Loose Bronzer');
+   const featuredSectionProducts = await homePageProductsSection.getProductsFromSection(ProductsSections.featured);
+   const productsDetails = await featuredSectionProducts.getProductDetails('Tropiques Minerale Loose Bronzer');
    
    expect(productsDetails.imageHref).toEqual('//automationteststore.com/image/thumbnails/18/6f/demo_product03_jpg-100094-250x250.jpg');
    expect(productsDetails.price).toEqual('$38.50');
