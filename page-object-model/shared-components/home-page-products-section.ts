@@ -5,9 +5,9 @@ export class HomePageProductsSection {
   constructor(private page: Page) {}
 
   async getProductsFromSection(productSectionName: string): Promise<HomePageProducts> {
-    const productSection = this.page.locator(
-      'div.block_frame:has(h1.heading1 span.maintext:has-text("' + productSectionName + '"))'
-    ).first();
+       const productSection = this.page.locator(
+      `div.block_frame:has(h1.heading1 span.maintext:has-text("${productSectionName}"))`
+).first();
 
     await productSection.scrollIntoViewIfNeeded();
     await productSection.waitFor();
