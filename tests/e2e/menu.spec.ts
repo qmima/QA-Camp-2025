@@ -1,22 +1,18 @@
-import { expect } from '@playwright/test';
-import { test } from '../../page-object-model/fixtures/MenuFixtures';
-import { config } from '../../config/globalConfig';
-import { Menu } from '../../page-object-model/shared-components/Menu';
-import { MenuRecursion } from '../../page-object-model/shared-components/MenuRecursion';
+import { test } from '../../page-object-model/fixtures/HomePageFixture';
 import { listMenu } from '../../page-object-model/shared-components/menu-elements';
 
 
-test('Check menu', async ({ menu, page }) => {
+test('Check menu', async ({ homePage, page }) => {
   
-  await page.goto(config.baseURL);
-  await new Menu(page).getMenuDetails(listMenu);
+  await homePage.open();
+  await homePage.getMenuDetails(listMenu);
 });
 
 
-test('Check menu recursively', async ({ menu, page }) => {
+test('Check menu recursively', async ({ homePage, page }) => {
   
-  await page.goto(config.baseURL);
+  await homePage.open();
   const xpath = `//*[@id="categorymenu"]/nav/ul/li`;
-  await new MenuRecursion(page).getMenuDetailsRec(listMenu, xpath);
+  await homePage.getMenuDetailsRec(listMenu, xpath);
 
 });

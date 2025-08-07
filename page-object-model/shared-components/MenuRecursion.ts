@@ -23,15 +23,11 @@ export class MenuRecursion {
         if (!e.sublist) 
           {
           await expect(this.page.locator(xpath + `[${i}]`)).toBeVisible();
-          //console.log('checking');
-          //console.log(xpath + `[${i}]`);
           }
           else
           {
           await this.page.locator(xpath + `[${i}]`).hover();
           let newXpath = xpath + `[${i}]` + e.subMenuXpath;
-          //console.log('going deeper');
-          //console.log(newXpath);
           await this.getMenuDetailsRec(e.sublist, newXpath);
           }
       }
