@@ -2,7 +2,7 @@ import { LogInPageObject } from './log-in-page.object';
 import { BasePageObject } from '../page-objects/base-page.object';
 
 export class HomePageObject extends BasePageObject {
-  async open() {
+  async open(): Promise<void> {
     await this.navigateTo();
     await this.checkIfOpen();
     await this.toHaveTitle('A place to practice your automation skills!');

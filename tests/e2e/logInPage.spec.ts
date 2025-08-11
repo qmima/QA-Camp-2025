@@ -16,27 +16,15 @@ test('1. Positive user registration', async ({ homePage }) => {
   await logInPage.toHaveTitle('Create Account');
 
   //fill User data
-  await logInPage.fillFirstName(user.firstName);
-  await logInPage.fillLastName(user.lastName);
-  await logInPage.fillEmail(user.email);
-  await logInPage.fillTelephone(user.telephone);
-  await logInPage.fillFax(user.fax);
-  await logInPage.fillCompany(user.company);
-  await logInPage.fillAdress1(user.adress1);
-  await logInPage.fillAdress2(user.adress2);
-  await logInPage.fillCity(user.city);
-  await logInPage.fillZipCode(user.zipCode);
-  await logInPage.selectCountry('Taiwan');
-  await logInPage.selectRegion('Chia-i');
-  await logInPage.fillUserName(user.username);
-  await logInPage.fillPassword(user.password);
-  await logInPage.fillPasswordConfirm(user.password);
+  await logInPage.fillAllUserData(user, 'Taiwan', 'Chia-i');
 
   //check checkboxes
   await logInPage.checkPolicyCheckbox();
   await logInPage.checkSubscribeNoButton();
 
   //verify all inputs
+  let inputText = await logInPage.getFirstName();
+  expect(inputText).toEqual(user.firstName);
 
   //Sumbit new rejestration
   await logInPage.clickRegisterButton();

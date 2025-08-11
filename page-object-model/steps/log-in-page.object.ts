@@ -9,64 +9,69 @@ export class LogInPageObject extends BasePageObject {
   async clickRegisterButton() {
     await this.page.locator("//button[@type='submit' and @title='Continue']").click();
   }
-  async fillFirstName(name) {
-    await this.fillInputID('AccountFrm_firstname', name);
+
+  async fillFirstName(firstName) {
+    await this.fillInputID('AccountFrm_firstname', firstName);
   }
 
-  async fillLastName(name) {
-    await this.fillInputID('AccountFrm_lastname', name);
+  async getFirstName() {
+    return this.page.locator('input#AccountFrm_firstname').inputValue();
   }
 
-  async fillEmail(name) {
-    await this.fillInputID('AccountFrm_email', name);
+  async fillLastName(LastName) {
+    await this.fillInputID('AccountFrm_lastname', LastName);
   }
 
-  async fillTelephone(name) {
-    await this.fillInputID('AccountFrm_telephone', name);
+  async fillEmail(email) {
+    await this.fillInputID('AccountFrm_email', email);
   }
 
-  async fillFax(name) {
-    await this.fillInputID('AccountFrm_fax', name);
+  async fillTelephone(telephoneNumber) {
+    await this.fillInputID('AccountFrm_telephone', telephoneNumber);
   }
 
-  async fillCompany(name) {
-    await this.fillInputID('AccountFrm_company', name);
+  async fillFax(faxNumber) {
+    await this.fillInputID('AccountFrm_fax', faxNumber);
   }
 
-  async fillAdress1(name) {
-    await this.fillInputID('AccountFrm_address_1', name);
+  async fillCompany(CompanyName) {
+    await this.fillInputID('AccountFrm_company', CompanyName);
   }
 
-  async fillAdress2(name) {
-    await this.fillInputID('AccountFrm_address_2', name);
+  async fillAdress1(Adress) {
+    await this.fillInputID('AccountFrm_address_1', Adress);
   }
 
-  async fillCity(name) {
-    await this.fillInputID('AccountFrm_city', name);
+  async fillAdress2(Adress) {
+    await this.fillInputID('AccountFrm_address_2', Adress);
   }
 
-  async selectRegion(selectedOption) {
-    await this.selectInputID('AccountFrm_zone_id', selectedOption);
+  async fillCity(cityName) {
+    await this.fillInputID('AccountFrm_city', cityName);
   }
 
-  async fillZipCode(name) {
-    await this.fillInputID('AccountFrm_postcode', name);
+  async selectRegion(selectRegion) {
+    await this.selectInputID('AccountFrm_zone_id', selectRegion);
   }
 
-  async selectCountry(selectedOption) {
-    await this.selectInputID('AccountFrm_country_id', selectedOption);
+  async fillZipCode(zipCode) {
+    await this.fillInputID('AccountFrm_postcode', zipCode);
   }
 
-  async fillUserName(name) {
-    await this.fillInputID('AccountFrm_loginname', name);
+  async selectCountry(selectCounty) {
+    await this.selectInputID('AccountFrm_country_id', selectCounty);
   }
 
-  async fillPassword(name) {
-    await this.fillInputID('AccountFrm_password', name);
+  async fillUserName(userName) {
+    await this.fillInputID('AccountFrm_loginname', userName);
   }
 
-  async fillPasswordConfirm(name) {
-    await this.fillInputID('AccountFrm_confirm', name);
+  async fillPassword(password) {
+    await this.fillInputID('AccountFrm_password', password);
+  }
+
+  async fillPasswordConfirm(password) {
+    await this.fillInputID('AccountFrm_confirm', password);
   }
 
   async checkSubscribeYesButton() {
@@ -83,5 +88,23 @@ export class LogInPageObject extends BasePageObject {
 
   async confirmationMessage() {
     return await this.page.textContent('.maintext');
+  }
+
+  async fillAllUserData(user, country, region) {
+    await this.fillFirstName(user.firstName);
+    await this.fillLastName(user.lastName);
+    await this.fillEmail(user.email);
+    await this.fillTelephone(user.telephone);
+    await this.fillFax(user.fax);
+    await this.fillCompany(user.company);
+    await this.fillAdress1(user.adress1);
+    await this.fillAdress2(user.adress2);
+    await this.fillCity(user.city);
+    await this.fillZipCode(user.zipCode);
+    await this.selectCountry(country);
+    await this.selectRegion(region);
+    await this.fillUserName(user.username);
+    await this.fillPassword(user.password);
+    await this.fillPasswordConfirm(user.password);
   }
 }

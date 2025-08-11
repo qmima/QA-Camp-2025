@@ -9,7 +9,7 @@ export class BasePageObject {
     this.url = url;
   }
 
-  async getURL() {
+  async getURL(): Promise<string> {
     return this.page.url();
   }
 
