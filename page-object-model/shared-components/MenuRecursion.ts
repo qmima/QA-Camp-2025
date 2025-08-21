@@ -18,7 +18,6 @@ export class MenuRecursion {
         let e = expectedMenuElements[i-1];
         const xpathText = xpath + `[${i}]/a`;
         const text = await this.page.locator(xpathText).textContent();
-        console.log(text?.trim())
         expect(e.name.toLowerCase()).toEqual(text?.trim().toLowerCase());
         if (!e.sublist) 
           {
