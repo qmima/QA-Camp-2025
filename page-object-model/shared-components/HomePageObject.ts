@@ -1,4 +1,4 @@
-import { expect, Locator, Page } from '@playwright/test';
+import { expect, Page } from '@playwright/test';
 import { MenuElementWithIcon } from './menu/menu-element-with-icon';
 import { MenuElementWithImage } from './menu/menu-element-with-image';
 import { MainMenuElementWithIcon } from './menu/main-menu-element-with-icon';
