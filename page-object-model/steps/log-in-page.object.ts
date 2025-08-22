@@ -1,7 +1,7 @@
 import { BasePageObject } from '../page-objects/base-page.object';
 
 export class LogInPageObject extends BasePageObject {
-  async selectInputID(selectorID, optionID) {
+  async selectInputID(selectorID: string, optionID: any) {
     const selectLocator = this.page.locator(`select#${selectorID}`);
     await selectLocator.selectOption(optionID);
   }
@@ -10,7 +10,7 @@ export class LogInPageObject extends BasePageObject {
     await this.page.locator("//button[@type='submit' and @title='Continue']").click();
   }
 
-  async fillFirstName(firstName) {
+  async fillFirstName(firstName: string) {
     await this.fillInputID('AccountFrm_firstname', firstName);
   }
 
@@ -18,59 +18,59 @@ export class LogInPageObject extends BasePageObject {
     return this.page.locator('input#AccountFrm_firstname').inputValue();
   }
 
-  async fillLastName(LastName) {
-    await this.fillInputID('AccountFrm_lastname', LastName);
+  async fillLastName(lastName: string) {
+    await this.fillInputID('AccountFrm_lastname', lastName);
   }
 
-  async fillEmail(email) {
+  async fillEmail(email: string) {
     await this.fillInputID('AccountFrm_email', email);
   }
 
-  async fillTelephone(telephoneNumber) {
+  async fillTelephone(telephoneNumber: string) {
     await this.fillInputID('AccountFrm_telephone', telephoneNumber);
   }
 
-  async fillFax(faxNumber) {
+  async fillFax(faxNumber: string) {
     await this.fillInputID('AccountFrm_fax', faxNumber);
   }
 
-  async fillCompany(CompanyName) {
-    await this.fillInputID('AccountFrm_company', CompanyName);
+  async fillCompany(companyName: string) {
+    await this.fillInputID('AccountFrm_company', companyName);
   }
 
-  async fillAdress1(Adress) {
-    await this.fillInputID('AccountFrm_address_1', Adress);
+  async fillAdress1(adress: string) {
+    await this.fillInputID('AccountFrm_address_1', adress);
   }
 
-  async fillAdress2(Adress) {
-    await this.fillInputID('AccountFrm_address_2', Adress);
+  async fillAdress2(adress: string) {
+    await this.fillInputID('AccountFrm_address_2', adress);
   }
 
-  async fillCity(cityName) {
+  async fillCity(cityName: string) {
     await this.fillInputID('AccountFrm_city', cityName);
   }
 
-  async selectRegion(selectRegion) {
+  async selectRegion(selectRegion: string) {
     await this.selectInputID('AccountFrm_zone_id', selectRegion);
   }
 
-  async fillZipCode(zipCode) {
+  async fillZipCode(zipCode: string) {
     await this.fillInputID('AccountFrm_postcode', zipCode);
   }
 
-  async selectCountry(selectCounty) {
+  async selectCountry(selectCounty: string) {
     await this.selectInputID('AccountFrm_country_id', selectCounty);
   }
 
-  async fillUserName(userName) {
+  async fillUserName(userName: string) {
     await this.fillInputID('AccountFrm_loginname', userName);
   }
 
-  async fillPassword(password) {
+  async fillPassword(password: string) {
     await this.fillInputID('AccountFrm_password', password);
   }
 
-  async fillPasswordConfirm(password) {
+  async fillPasswordConfirm(password: string) {
     await this.fillInputID('AccountFrm_confirm', password);
   }
 
