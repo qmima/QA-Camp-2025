@@ -28,5 +28,8 @@
     "husky": "^8.0.0",
     "prettier": "^3.5.3",
     "typescript-eslint": "^8.34.1"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^9.8.0"
   }
 }
