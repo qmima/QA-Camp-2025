@@ -15,7 +15,7 @@ export class MenuRecursion {
     expect(expectedMenuElements.length).toEqual(menuCounter);
     for (let i = 1; i <= menuCounter; i++) 
       {
-        let e = expectedMenuElements[i-1];
+        const e = expectedMenuElements[i-1];
         const xpathText = xpath + `[${i}]/a`;
         const text = await this.page.locator(xpathText).textContent();
         expect(e.name.toLowerCase()).toEqual(text?.trim().toLowerCase());
@@ -26,7 +26,7 @@ export class MenuRecursion {
           else
           {
           await this.page.locator(xpath + `[${i}]`).hover();
-          let newXpath = xpath + `[${i}]` + e.subMenuXpath;
+          const newXpath = xpath + `[${i}]` + e.subMenuXpath;
           await this.getMenuDetailsRec(e.sublist, newXpath);
           }
       }
