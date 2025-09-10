@@ -1,8 +1,8 @@
 import { ProductsSections } from '../../page-object-model/constants/products-sections';
-import { test } from '../../page-object-model/fixtures/HomePageFixture';
-import { HomePageProductsSection } from '../../page-object-model/shared-components/home-page-products-section';
+import { HomePageProductsSection } from '../../page-object-model/steps/home-page-products-section';
 import { expect } from '@playwright/test';
-import { ProductPageCard } from '../../page-object-model/shared-components/product-page-card';
+import { ProductPageCard } from '../../page-object-model/steps/product-page-card';
+import { test } from '../../page-object-model/fixtures/automation-test.fixture';
 
 test('adding item to basket', async ({ page, homePage }) => {
   
