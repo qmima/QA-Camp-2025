@@ -8,8 +8,6 @@ export class ProductPageCard {
   }
 
   async addProductToBasket(productName: string): Promise<void> {
-  
-     //await this.page.click(`.productpagecart`);
 
      await this.page.locator(`.productpagecart`).click();
   }
