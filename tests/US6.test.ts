@@ -32,5 +32,4 @@ test('US6 test', async ({ page }) => {
   await page.getByRole('spinbutton', { name: 'Energia:' }).fill('15');
   await page.getByRole('spinbutton', { name: 'Zdrowie:' }).fill('15');
   await page.getByRole('button', { name: 'Dodaj postać' }).click();
-
 });
