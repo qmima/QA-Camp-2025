@@ -1,5 +1,4 @@
 import { expect, Page } from '@playwright/test';
-import { BasePageObject } from '../page-objects/base-page.object';
 
 export class PopupElement {
   page: Page;

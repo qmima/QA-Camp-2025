@@ -1,6 +1,6 @@
 import { Page } from '@playwright/test';
 import { BasePageObject } from '../page-objects/base-page.object';
-import { PopupElement } from '../shared-components/Popup';
+import { PopupElement } from '../page-objects/Popup';
 
 export class HomePageObject extends BasePageObject {
   popup: PopupElement;

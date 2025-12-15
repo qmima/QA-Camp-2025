@@ -1,6 +1,6 @@
-import { test, expect } from '@playwright/test';
+import { test } from '@playwright/test';
 
-test('test', async ({ page }) => {
+test('US6 test', async ({ page }) => {
   await page.goto('https://howlingtesters.pl/party/');
   await page.getByRole('button', { name: 'Reject All' }).click();
 

@@ -1,5 +1,5 @@
 import { Page, expect } from '@playwright/test';
-import { currency } from '../shared-components/Currency';
+import { currency } from '../page-objects/currency-page.object';
 
 export class MainPageSteps {
   page: Page;
@@ -9,20 +9,20 @@ export class MainPageSteps {
   }
 
   public async chooseCurrency(newCurrency: { name: string; symbol: string }) {
-    let currencyMenu = this.page.locator('ul.language');
+    const currencyMenu = this.page.locator('ul.language');
     await currencyMenu.hover();
 
-    let option = this.page
+    const option = this.page
       .getByRole('listitem')
       .filter({ hasText: `${newCurrency.symbol} ${newCurrency.name}` })
       .nth(1);
     await option.click();
-    
+
     currency.changeCurrency(newCurrency.symbol);
   }
 
   public async verifyCurrency() {
-    let symbol = await this.page.textContent('a.dropdown-toggle span.label');
+    const symbol = await this.page.textContent('a.dropdown-toggle span.label');
     expect(symbol).toBe(currency.getCurrency());
   }
 }
