@@ -1,5 +1,5 @@
 import { Page } from "@playwright/test";
-import { HomePageProducts } from "./home-page-products";
+import { HomePageProducts } from "../shared-components/home-page-products";
 
 export class HomePageProductsSection {
   constructor(private page: Page) {}
