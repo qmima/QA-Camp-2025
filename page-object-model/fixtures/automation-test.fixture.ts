@@ -2,6 +2,7 @@ import { test as base } from '@playwright/test';
 import { MenuRecursion } from '../shared-components/MenuRecursion';
 import { HomePageObject } from '../shared-components/HomePageObject';
 import { config } from '../../config/globalConfig';
+import { HomePageObject } from '../steps/home-page.object';
 
 type Fixtures = {
   menu: MenuRecursion,
