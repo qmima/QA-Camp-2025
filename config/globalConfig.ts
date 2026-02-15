@@ -1,3 +1,3 @@
 export const config = {
-  baseURL: 'https://automationteststore.com/',
+  baseURL: 'https://howlingtesters.pl/party/',
 };

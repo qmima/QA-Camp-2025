@@ -1,7 +1,10 @@
 import { BasePageObject } from '../page-objects/base-page.object';
 
 export class LogInPageObject extends BasePageObject {
-  async selectInputID(selectorID: string, optionID: any) {
+  async selectInputID(
+    selectorID: string,
+    optionID: string | number | SelectOption | Array<string | number | SelectOption>
+  ) {
     const selectLocator = this.page.locator(`select#${selectorID}`);
     await selectLocator.selectOption(optionID);
   }

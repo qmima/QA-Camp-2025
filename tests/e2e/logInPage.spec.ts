@@ -23,7 +23,7 @@ test('1. Positive user registration', async ({ homePage }) => {
   await logInPage.checkSubscribeNoButton();
 
   //verify all inputs
-  let inputText = await logInPage.getFirstName();
+  const inputText = await logInPage.getFirstName();
   expect(inputText).toEqual(user.firstName);
 
   //Sumbit new rejestration
