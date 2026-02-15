@@ -1,12 +1,11 @@
 import { test } from '../page-object-model/fixtures/howling-test.fixture';
 
 test('Unikalność imienia', async ({ homePage }) => {
-  
   const name1 = 'Bohater';
   const name2 = 'bohater';
   const role = 'Wojownik';
   const powers1 = ['20', '15', '10', '10'];
-  const powers2 = ['15', '15', '10', '15']
+  const powers2 = ['15', '15', '10', '15'];
 
   await homePage.open();
   await homePage.clickAcceptButton();

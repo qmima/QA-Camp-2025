@@ -1,3 +1,3 @@
 export interface MenuElementInterface {
-    subMenuXpath: string;
+  subMenuXpath: string;
 }
