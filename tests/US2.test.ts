@@ -1,9 +1,11 @@
-import { test } from '../page-object-model/fixtures/automation-test.fixture';
+import { test } from '../page-object-model/fixtures/howling-test.fixture';
 
-test('US2 test', async ({ homePage, page }) => {
+test('US2 test', async ({ homePage }) => {
   await homePage.open();
-  await page.getByRole('textbox', { name: 'Imię postaci:' }).fill('Postać_01');
-  await page.getByRole('button', { name: 'Dodaj postać' }).click();
+  await homePage.clickAcceptButton();
+  await homePage.fillName('Postać_01');
+  await homePage.addCharacter();
+  await homePage.validatePopupIncompletePoints();
 
-  await homePage.popup.validatePopup();
+  await homePage.closePage();
 });

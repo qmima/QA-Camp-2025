@@ -31,7 +31,14 @@ export class HomePageObject extends BasePageObject {
     await this.page.getByRole('spinbutton', { name: 'Zdrowie:' }).fill(powers[3]);
   }
 
-  async chceckPopup() {
+  async validatePopupIncompletePoints() {
+    await expect(this.page.locator('#popup-title')).toContainText('Niepełne punkty');
+    await expect(this.page.locator('#popup-message')).toContainText(
+      'Nie można utworzyć postaci. Pozostało 15 punktów do rozdania!'
+    );
+  }
+
+  async checkPopupDuplicateName() {
     await expect(this.page.locator('#popup-title')).toContainText('Duplikat imienia');
     await expect(this.page.locator('#popup-message')).toContainText(
       'Postać o tym imieniu już istnieje! Wybierz inne imię.'

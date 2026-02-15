@@ -17,6 +17,7 @@ test('Unikalność imienia', async ({ homePage }) => {
   await homePage.chooseRole(role);
   await homePage.fillPowers(powers2);
   await homePage.addCharacter();
-  await homePage.chceckPopup();
+  await homePage.checkPopupDuplicateName();
+  
   await homePage.closePage();
 });
